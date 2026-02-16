@@ -12,6 +12,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/styles.css">
+
+  <style>
+    /* extras mínimos para a ponte com imagem e galeria, sem reestruturar seu CSS */
+    .hero-photo .photo-card { overflow: hidden; border-radius: 16px; }
+    .hero-photo img { width: 100%; height: auto; display: block; }
+    .photo-caption { margin-top: 10px; color: rgba(255,255,255,.72); font-size: 13px; line-height: 1.4; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .gallery img { width: 100%; height: auto; border-radius: 14px; display: block; border: 1px solid rgba(255,255,255,.08); }
+    @media (max-width: 980px){ .gallery { grid-template-columns: 1fr; } }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 760px){ .form-grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-weight: 600; font-size: 13px; opacity: .9; }
+    .field input, .field select {
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(10,15,28,.35);
+      color: #fff;
+      outline: none;
+    }
+    .field input::placeholder { color: rgba(255,255,255,.45); }
+    .form-actions { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+    .micro-quiet { opacity: .75; }
+    .badge-free {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(16, 185, 129, .10);
+      color: rgba(255,255,255,.92);
+      font-weight: 700;
+      font-size: 12px;
+    }
+  </style>
 </head>
 
 <body>
@@ -19,9 +56,8 @@
     <div class="container topbar-inner">
       <div class="brand">
         <span class="brand-title">Facilita Fluxo de Caixa</span>
-        <span class="brand-sub">Clareza imediata sobre o dinheiro do seu negócio </span>
+        <span class="brand-sub">Clareza imediata sobre o dinheiro do seu negócio</span>
       </div>
-   
     </div>
   </header>
 
@@ -30,6 +66,10 @@
     <section class="hero" id="topo">
       <div class="container hero-grid">
         <div class="hero-copy">
+          <div class="badge-free" aria-label="Bônus gratuito">
+            Bônus, acesso gratuito
+          </div>
+
           <h1>Pare de decidir no escuro sobre o dinheiro do seu negócio.</h1>
 
           <p class="subheadline">
@@ -42,21 +82,33 @@
           <div class="hero-proof">
             <span class="pill">Leitura rápida</span>
             <span class="pill">Sem mensalidade</span>
-            <span class="pill">Acesso imediato</span>
+            <span class="pill">Resultado na hora</span>
           </div>
         </div>
 
-        <div class="hero-video">
-          <div class="video-card">
-            <vturb-smartplayer id="vid-6985f96c057b3c98dcee81d0" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+        <!-- no lugar do vídeo -->
+        <div class="hero-video hero-photo">
+          <div class="photo-card card">
+            <!-- coloque uma imagem de capa aqui -->
+            <img
+              src="./assets/facilita-hero.png"
+              alt="Facilita Fluxo de Caixa, visão geral do diagnóstico"
+              loading="eager"
+            />
           </div>
 
+          <p class="photo-caption">
+            Diagnóstico simples para orientar decisões. Sem promessa exagerada, só clareza inicial.
+          </p>
+
           <div class="hero-cta">
-            <a class="btn btn-primary btn-wide" href="#oferta" data-scroll data-cta>
-              👉 Quero decidir com clareza agora
+            <a class="btn btn-primary btn-wide" 
+              href="https://facilita-fluxo-caixa-pj-gzog96ig5nvpszrkx9p5un.streamlit.app/"
+              target="_blank" rel="noopener noreferrer" data-cta>
+              👉 Iniciar diagnóstico
             </a>
-            <p class="micro">
-              Acesso imediato • Sem mensalidade • Garantia de 7 dias
+            <p class="micro micro-quiet">
+              Primeiro, deixe seus dados para eu saber quem está usando, depois você segue para a ferramenta.
             </p>
           </div>
         </div>
@@ -100,7 +152,7 @@
           <div class="step card">
             <div class="step-n">3</div>
             <div class="step-t">
-              <strong>Você recebe clareza </strong>
+              <strong>Você recebe clareza</strong>
               <p>Verde, Amarelo ou Vermelho, com orientação</p>
             </div>
           </div>
@@ -131,17 +183,27 @@
             </div>
           </div>
         </div>
+        
+      </div>
+    </section>
+
+    <!-- PRINTS DO FACILITA -->
+    <section class="section alt reveal" id="prints">
+      <div class="container">
+        <div class="section-head">
+          <h2>Por dentro do Facilita</h2>
+          <p class="section-sub">Algumas telas para você saber exatamente o que esperar.</p>
+        </div>
 
         <div class="center">
-          <a class="btn btn-primary" href="#oferta" data-scroll data-cta>
-            👉 Parar de perder tempo no caixa
-          </a>
+          <img src="./assets/screens/facilita-01.png" alt="Tela do Facilita, entrada de números" loading="lazy">        
         </div>
+        
       </div>
     </section>
 
     <!-- O QUE VOCÊ RECEBE -->
-    <section class="section alt reveal" id="recebe">
+    <section class="section reveal" id="recebe">
       <div class="container">
         <div class="section-head">
           <h2>O que você recebe</h2>
@@ -158,19 +220,19 @@
             <p>Vai faltar ou sobrar dinheiro, com leitura direta.</p>
           </div>
           <div class="card">
-            <strong>Aula curta para interpretar</strong>
-            <p>Você aprende a tomar decisões melhores com base no resultado.</p>
+            <strong>Orientação prática</strong>
+            <p>Recomendações objetivas para reduzir risco e aumentar controle.</p>
           </div>
           <div class="card">
             <strong>Modelo reutilizável</strong>
-            <p>Não precisa preencher todo dia, use quando precisar de clareza.</p>
+            <p>Use quando precisar de clareza, sem burocracia.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PRA QUEM É / PRA QUEM NÃO É -->
-    <section class="section reveal" id="para-quem">
+    <section class="section alt reveal" id="para-quem">
       <div class="container">
         <div class="section-head">
           <h2>É para você ou não?</h2>
@@ -179,16 +241,16 @@
 
         <div class="two-cols">
           <div class="card">
-            <h3> É para você se</h3>
+            <h3>É para você se</h3>
             <ul class="list">
-              <li>O dinheiro entra. A segurança nunca</li>
+              <li>O dinheiro entra, mas a segurança nunca aparece</li>
               <li>Você já tentou planilha e desistiu</li>
               <li>Você quer decidir retiradas sem medo de quebrar o caixa</li>
             </ul>
           </div>
 
           <div class="card">
-            <h3> Não é para você se</h3>
+            <h3>Não é para você se</h3>
             <ul class="list">
               <li>Você quer uma contabilidade completa</li>
               <li>Você precisa de relatórios técnicos ou DRE detalhado</li>
@@ -198,55 +260,8 @@
       </div>
     </section>
 
-    <!-- GARANTIA -->
-    <section class="section alt reveal" id="garantia">
-      <div class="container">
-        <div class="guarantee card">
-          <div class="guarantee-badge">7 dias</div>
-          <div class="guarantee-text">
-            <h2>Garantia de 7 dias</h2>
-            <p>
-              Se não trouxer clareza real sobre seu caixa, devolvemos 100% do valor.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- OFERTA -->
-    <section class="section reveal" id="oferta">
-      <div class="container">
-        <div class="offer card">
-          <div class="offer-left">
-            <p class="offer-name">Facilita Fluxo de Caixa</p>
-
-            <div class="offer-price">
-              <div class="price-line">
-                <span>5x de</span>
-                <strong>R$ 8,19</strong>
-                <span>no cartão</span>
-              </div>
-              <div class="price-line muted">
-                <span>ou</span>
-                <strong>R$ 37,00</strong>
-                <span>à vista</span>
-              </div>
-            </div>
-
-            <p class="micro">Pagamento seguro pela Hotmart • Acesso imediato</p>
-          </div>
-
-          <div class="offer-right">
-            <a class="btn btn-primary btn-wide" href="https://pay.hotmart.com/T104122762T" target="_blank" rel="noopener" data-cta>
-              👉 Quero clareza agora
-            </a>
-            <p class="micro">Sem mensalidade • Garantia de 7 dias</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ enxuto -->
+    <!-- FAQ enxuto (sem Hotmart) -->
     <section class="section alt reveal" id="faq">
       <div class="container">
         <div class="section-head">
@@ -261,7 +276,7 @@
               <span class="acc-ico" aria-hidden="true">+</span>
             </button>
             <div class="acc-a" hidden>
-              <p>Não. Isso é clareza para decidir melhor. Seu contador continua essencial.</p>
+              <p>Não. Isso é clareza inicial para decidir melhor. Seu contador continua essencial.</p>
             </div>
           </div>
 
@@ -277,20 +292,15 @@
 
           <div class="acc-item">
             <button class="acc-q" type="button" aria-expanded="false">
-              Quando recebo o acesso?
+              É gratuito?
               <span class="acc-ico" aria-hidden="true">+</span>
             </button>
             <div class="acc-a" hidden>
-              <p>Imediatamente após a confirmação do pagamento na Hotmart.</p>
+              <p>Sim. É um bônus de diagnóstico inicial. O objetivo é gerar clareza rápida.</p>
             </div>
           </div>
         </div>
-
-        <div class="center">
-          <a class="btn btn-primary" href="https://pay.hotmart.com/T104122762T" target="_blank" rel="noopener" data-cta>
-            👉 Tomar decisões melhores agora
-          </a>
-        </div>
+        
       </div>
     </section>
 
@@ -299,19 +309,21 @@
       <div class="container footer-inner">
         <div>
           <strong>Facilita Fluxo de Caixa</strong>
-          <p class="micro">Site: alettoledo-rgb.github.io</p>
+          <p class="micro">Bônus, diagnóstico inicial</p>
         </div>
         <div class="footer-right">
-          <p class="micro">Suporte: suporte@seudominio.com</p>
+          <p class="micro">Contato: contato@toledoalexandre.com.br</p>
           <p class="micro">© <span id="year"></span> Direitos reservados</p>
         </div>
       </div>
     </footer>
 
-    <!-- Sticky CTA mobile -->
+    <!-- Sticky CTA mobile (mantive o ID para não quebrar seu JS atual) -->
     <div class="sticky" id="stickyCta" aria-hidden="true">
-      <a class="btn btn-primary btn-wide" href="https://pay.hotmart.com/T104122762T" target="_blank" rel="noopener" data-cta>
-        👉 Entrar no grupo que decide com clareza por R$ 37,00
+      <a class="btn btn-primary btn-wide" 
+        href="https://facilita-fluxo-caixa-pj-gzog96ig5nvpszrkx9p5un.streamlit.app/"
+        target="_blank" rel="noopener noreferrer" data-cta>
+        👉 Iniciar diagnóstico
       </a>
     </div>
 
@@ -319,12 +331,37 @@
 
   <script src="./js/script.js"></script>
 
-  <!-- VTurb: novo player -->
-  <script type="text/javascript">
-    var s=document.createElement("script");
-    s.src="https://scripts.converteai.net/7a2f2c75-9a37-4ad8-b060-7171f7f0bf22/players/6985f96c057b3c98dcee81d0/v4/player.js";
-    s.async=!0;
-    document.head.appendChild(s);
+  <script>
+    // ano do rodapé
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ponte: envia e redireciona para o Streamlit
+    const STREAMLIT_APP_URL = "https://facilita-fluxo-caixa-pj-gzog96ig5nvpszrkx9p5un.streamlit.app/";
+
+    const form = document.getElementById("leadForm");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // captura dados
+        const data = {
+          nome: document.getElementById("nome")?.value?.trim(),
+          email: document.getElementById("email")?.value?.trim(),
+          empresa: document.getElementById("empresa")?.value?.trim(),
+          porte: document.getElementById("porte")?.value
+        };
+
+        // aqui você pode integrar com endpoint depois
+        // por enquanto guardamos localmente para não perder (mínimo viável)
+        try {
+          const key = "facilita_lead_" + Date.now();
+          localStorage.setItem(key, JSON.stringify(data));
+        } catch (_) {}
+
+        // redireciona para a ferramenta
+        window.location.href = STREAMLIT_APP_URL;
+      });
+    }
   </script>
 </body>
 </html>
